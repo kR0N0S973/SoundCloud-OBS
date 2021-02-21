@@ -18,3 +18,9 @@ the program is open and you can refresh the WidgetBrowser with the button.
 ###
 
 This project has nothing to do with SoundCloud itselfs.
+
+###
+
+Credits:
+Used browser: https://cefsharp.github.io/
+HTML parser: https://html-agility-pack.net/
