@@ -17,6 +17,10 @@ the program is open and you can refresh the WidgetBrowser with the button.
 
 ###
 
+![alt text](https://github.com/kR0N0S973/SoundCloud-OBS/blob/master/prev.png?raw=true)
+
+###
+
 This project has nothing to do with SoundCloud itselfs.
 
 ###
