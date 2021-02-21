@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var prev_data;
+            var widget = $(".widget");
+            widget.hide();
+
+            function functionToLoadFile() {
+                jQuery.get('currentsong.txt', function (data) {
+                    var myvar = data;
+                    if(myvar != prev_data)
+                    {
+                        widget.fadeOut("slow", function(){
+                            var parts = myvar.split(';');
+                            var songtitle = parts[0];
+                            var songartist = parts[1];
+                            var songalbum = parts[3];
+
+                            $('.song-autor').html(songartist);
+                            $('.song-name').html(songtitle);
+                            $('.song-album-img').attr("src", songalbum + '&timestamp=' + new Date().getTime());
+                            widget.fadeIn("slow");
+                        });
+
+
+                        prev_data = data;
+                    }
+
+
+
+                    setTimeout(functionToLoadFile, 5000);
+                });
+            }
+
+            setTimeout(functionToLoadFile, 10);
+        });
+    </script>
+    <style>
+        html, body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .widget {
+            overflow: hidden;
+            width: 300px;
+            background-color: #232323;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-right: 10px;
+        }
+
+            .widget .left {
+                float: left;
+                width: 20%;
+            }
+
+            .widget .right {
+                float: left;
+                width: 77%;
+                padding-left: 3%;
+                font-size: 12px;
+            }
+
+                .widget .right .song-autor {
+                    padding-top: 5px;
+                    text-transform: uppercase;
+                    color: #999;
+                    font-weight: bold;
+                    padding-bottom: 5px;
+                }
+
+                .widget .right .song-name {
+                    padding-bottom: 5px;
+                    font-size: 1.1em;
+                }
+
+        img.song-album-img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget">
+        <div class="left">
+            <img src="" class="song-album-img" />
+        </div>
+        <div class="right">
+            <div class="song-autor">test</div>
+            <div class="song-name">test</div>
+        </div>
+    </div>
+</body>
+</html>
