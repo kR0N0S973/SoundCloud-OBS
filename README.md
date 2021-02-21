@@ -21,6 +21,10 @@ This project has nothing to do with SoundCloud itselfs.
 
 ###
 
+Download x86: https://github.com/kR0N0S973/SoundCloud-OBS/releases
+
+###
+
 Credits:
 Used browser: https://cefsharp.github.io/
 HTML parser: https://html-agility-pack.net/
