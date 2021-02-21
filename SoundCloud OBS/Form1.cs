@@ -25,7 +25,7 @@ namespace SoundCloud_OBS
         SimpleHTTPServer myServer;
         string song_author_class = "//a[@class='playbackSoundBadge__titleLink sc-truncate']";
         string song_name_class = "//a[@class='playbackSoundBadge__lightLink sc-link-light sc-truncate']";
-        string song_image_class = "//span[@class='sc-artwork sc-artwork-placeholder-6  image__full g-opacity-transition']";
+        //string song_image_class = "//span[@class='sc-artwork sc-artwork-placeholder-6  image__full g-opacity-transition']";
 
         public Form1()
         {
@@ -137,7 +137,7 @@ namespace SoundCloud_OBS
                 }
 
 
-                    // playbackSoundBadge 
+          
 
                     HtmlAgilityPack.HtmlNode ts4 = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'playbackSoundBadge')]");
                     if(ts4 != null)
@@ -172,19 +172,6 @@ namespace SoundCloud_OBS
                     }
 
                     }
-
-                //    HtmlAgilityPack.HtmlNode ts3 = doc.DocumentNode.SelectSingleNode(song_image_class);
-                //if (ts3 != null)
-                //{
-                //    string img = ts3.Attributes["style"].Value;
-
-                //    int pFrom = img.IndexOf("url(") + "key : ".Length;
-                //    int pTo = img.LastIndexOf(")");
-
-                //    string result = img.Substring(pFrom, pTo - pFrom).Replace('"', ' ').Replace("&quot;", "");
-
-                //    text += result + "\n";
-                //}
 
                 if (File.Exists(f2))
                 {
@@ -237,7 +224,7 @@ namespace SoundCloud_OBS
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/kevinwiede/SoundCloud-OBS/");
+            System.Diagnostics.Process.Start("https://github.com/kR0N0S973/SoundCloud-OBS");
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
