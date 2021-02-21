@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("SoundCloud OBS")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("NowPlaying feature from SoundCloud")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SoundCloud OBS")]

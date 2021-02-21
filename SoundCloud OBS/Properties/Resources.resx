@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,111 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="index" xml:space="preserve">
+    <value>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en" xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function () {
+            var prev_data;
+            var widget = $(".widget");
+            widget.hide();
+
+            function functionToLoadFile() {
+                jQuery.get('currentsong.txt', function (data) {
+                    var myvar = data;
+                    if(myvar != prev_data)
+                    {
+                        widget.fadeOut("slow", function(){
+                            var parts = myvar.split(';');
+                            var songtitle = parts[0];
+                            var songartist = parts[1];
+                            var songalbum = parts[3];
+
+                            $('.song-autor').html(songartist);
+                            $('.song-name').html(songtitle);
+                            $('.song-album-img').attr("src", songalbum + '&amp;timestamp=' + new Date().getTime());
+                            widget.fadeIn("slow");
+                        });
+
+
+                        prev_data = data;
+                    }
+
+
+
+                    setTimeout(functionToLoadFile, 5000);
+                });
+            }
+
+            setTimeout(functionToLoadFile, 10);
+        });
+    &lt;/script&gt;
+    &lt;style&gt;
+        html, body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .widget {
+            overflow: hidden;
+            width: 300px;
+            background-color: #232323;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-right: 10px;
+        }
+
+            .widget .left {
+                float: left;
+                width: 20%;
+            }
+
+            .widget .right {
+                float: left;
+                width: 77%;
+                padding-left: 3%;
+                font-size: 12px;
+            }
+
+                .widget .right .song-autor {
+                    padding-top: 5px;
+                    text-transform: uppercase;
+                    color: #999;
+                    font-weight: bold;
+                    padding-bottom: 5px;
+                }
+
+                .widget .right .song-name {
+                    padding-bottom: 5px;
+                    font-size: 1.1em;
+                }
+
+        img.song-album-img {
+            width: 100%;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="widget"&gt;
+        &lt;div class="left"&gt;
+            &lt;img src="" class="song-album-img" /&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="song-autor"&gt;test&lt;/div&gt;
+            &lt;div class="song-name"&gt;test&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
 </root>

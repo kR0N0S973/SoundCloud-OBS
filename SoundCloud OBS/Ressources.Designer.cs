@@ -61,6 +61,16 @@ namespace SoundCloud_OBS {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5a2479c4f4de449ae2e724d31599b8a3 {
+            get {
+                object obj = ResourceManager.GetObject("5a2479c4f4de449ae2e724d31599b8a3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///
         ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;

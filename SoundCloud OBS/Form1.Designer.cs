@@ -38,8 +38,9 @@ namespace SoundCloud_OBS
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -62,9 +63,8 @@ namespace SoundCloud_OBS
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.panel2);
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -72,6 +72,7 @@ namespace SoundCloud_OBS
             // 
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -85,11 +86,6 @@ namespace SoundCloud_OBS
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
             // linkLabel1
             // 
             resources.ApplyResources(this.linkLabel1, "linkLabel1");
@@ -97,21 +93,36 @@ namespace SoundCloud_OBS
             this.linkLabel1.TabStop = true;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // panel3
+            // 
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.BackgroundImage = global::SoundCloud_OBS.Ressources._5a2479c4f4de449ae2e724d31599b8a3;
+            this.panel3.Name = "panel3";
+            // 
+            // linkLabel2
+            // 
+            resources.ApplyResources(this.linkLabel2, "linkLabel2");
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,8 +136,9 @@ namespace SoundCloud_OBS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }
 
